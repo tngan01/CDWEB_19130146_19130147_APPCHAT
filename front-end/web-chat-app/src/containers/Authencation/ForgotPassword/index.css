@@ -1,0 +1,43 @@
+.login {
+    padding-top: 10px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 100vh;
+    background-position-y: 70px;
+    background: #001529;
+  }
+  .login-logo-ant {
+    text-align: center;
+    margin-bottom: 50px;
+    padding-top: 20px;
+  }
+  .login-form {
+    max-width: 400px;
+  }
+  .login-form-forgot {
+    float: right;
+  }
+  .ant-col-rtl .login-form-forgot {
+    float: left;
+  }
+  .login-form-button {
+    width: 100%;
+  }
+  
+  .card-login {
+    margin-top: 20px;
+
+  }
+  
+  .login-title {
+    text-align: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    padding-bottom: 7px;
+    margin-bottom: 22px;
+  
+  }
+  .login button{
+    background-color: blue !important;
+    margin-bottom: 5px;
+    padding: 3px;
+   }

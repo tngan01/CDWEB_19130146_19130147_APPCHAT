@@ -1,0 +1,77 @@
+@import '~antd/dist/antd.less';
+@import './theme.less';
+@import '~react-toastify/dist/ReactToastify.css';
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Noto Sans JP', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: @background;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+.app-container {
+  min-height: 100vh;
+  width: 100%;
+}
+
+.content-wrapper {
+  padding: 24px;
+}
+.full-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ant-input-affix-wrapper-focused,
+.ant-select-focused {
+  box-shadow: none;
+}
+
+.ant-divider {
+  margin: 16px 0;
+}
+
+.ant-typography {
+  margin-bottom: 0;
+}
+.page-wrapper {
+  .page-header {
+    padding: 16px;
+    background-color: @white;
+  }
+  .content-container {
+    width: calc(100% - 48px);
+    min-height: calc(100vh - 200px);
+    margin: 12px auto 0;
+    background-color: @white;
+  }
+}
+
+.ellipsis-text-one-line {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  word-break: break-all;
+}
+
+.authorizing-spint-container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

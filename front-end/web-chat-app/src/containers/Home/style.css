@@ -1,0 +1,29 @@
+.ant-layout-sider {
+  /* background: rgb(223, 215, 241) !important; */
+}
+.ant-collapse {
+  /* border: none; */
+  border-radius: 0px;
+  background: none;
+}
+
+.ant-collapse-header-text {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  color: #aba9a9;
+  padding: 5px 0px 5px 0px;
+  /* box-shadow: 0px 1px 0px 0px #f8f4f4; */
+  border-bottom: 1px solid rgb(23, 1, 54);
+}
+
+.ant-collapse-header-text:hover {
+  border-bottom: 1px solid rgb(97, 5, 196);
+  color: rgb(97, 5, 196);
+}
+.profile-user .ant-dropdown-menu {
+  margin-top: 15px !important;
+}
+.ant-dropdown {
+  min-width: 150px !important;
+}
