@@ -19,7 +19,7 @@ public class MessageController {
     private MessageService messageService;
     @Autowired
     private RoomService roomService;
-
+    @CrossOrigin
     @PutMapping("/rooms/{roomId}/messages/{messageId}/pin")
     public String pinMessage(@PathVariable long messageId,@PathVariable long roomId){
        Message m = messageService.findById(messageId);
@@ -34,7 +34,7 @@ public class MessageController {
        return "This message is pin!";
 
     }
-
+    @CrossOrigin
     @PutMapping("/rooms/{roomId}/messages/{messageId}/unpin")
     public String unpinMessage(@PathVariable long messageId,@PathVariable long roomId){
         Message m = messageService.findById(messageId);

@@ -8,6 +8,11 @@ export interface GeneralState {
     visible: boolean;
     data: any;
   };
+  confirmModalFriendList: {
+    visible: boolean;
+    data: any;
+    
+  };
   modelData: {
     visible: boolean;
     data: any;
@@ -22,6 +27,10 @@ export interface GeneralState {
 const initialState = {
   isLoading: false,
   confirmModal: {
+    visible: false,
+    data: {},
+  },
+  confirmModalFriendList: {
     visible: false,
     data: {},
   },
@@ -40,6 +49,16 @@ const generalSlice = createSlice({
   initialState,
   reducers: {
     setFormModal(state, action) {
+      const { payload = {} } = action;
+      return {
+        ...state,
+        modelAccept: {
+          visible: action.payload.visible,
+          data: action.payload.data || state.modelAccept.data,
+        },
+      };
+    },
+    setFormModalFriendList(state, action) {
       const { payload = {} } = action;
       return {
         ...state,
@@ -104,6 +123,7 @@ export const {
   setConfirmModal,
   resetConfirmModal,
   setModelData,
+  setFormModalFriendList,
   resetModelData,
 } = generalSlice.actions;
 export default generalSlice.reducer;

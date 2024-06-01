@@ -23,6 +23,7 @@ import java.util.Comparator;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/chatapp.api")
 public class RoomCotroller {
 
@@ -47,7 +48,7 @@ public class RoomCotroller {
     };
 
 
-
+    @CrossOrigin
     @GetMapping("/rooms")
     public List<RoomDto> getAllMyRooms(@RequestHeader("Authorization") String bearerToken) {
         String username = jwtService.extractUsername(bearerToken.substring(7));
@@ -66,7 +67,7 @@ public class RoomCotroller {
 
     }
 
-
+    @CrossOrigin
     @PostMapping("/room/member")
     public void addMemberGroup(@RequestHeader("Authorization") String bearerToken, @RequestBody GroupChatDto groupChatDto) {
         Room room = roomService.findById(groupChatDto.getId());
@@ -83,7 +84,7 @@ public class RoomCotroller {
 
         roomService.createNewRoom(room);
     }
-
+    @CrossOrigin
     @PostMapping("/room")
     public void createGroupChat(@RequestHeader("Authorization") String bearerToken, @RequestBody GroupChatDto groupChatDto) {
         Room room = new Room();
@@ -110,7 +111,7 @@ public class RoomCotroller {
         roomService.createNewRoom(room);
 
     }
-
+    @CrossOrigin
     @GetMapping("/rooms/{id}/members")
     public List<Room> getMembersInRoom(@PathVariable long id) {
         return (List) roomService.getMembersInRoom(id);
@@ -118,14 +119,14 @@ public class RoomCotroller {
     }
 
 
-
+    @CrossOrigin
     @GetMapping("/rooms/{roomId}/{content}")
     public List<Message> findMessageByContentContain(@PathVariable long roomId, @PathVariable String content){
       Room room = roomService.findById(roomId);
       System.out.println(roomId + content);
       return messageService.findMessageByContentContain(room, content);
     }
-
+    @CrossOrigin
     @GetMapping("/rooms/{roomId}/messages")
     public List<Message> getMessages(@PathVariable long roomId){
 
@@ -133,7 +134,7 @@ public class RoomCotroller {
         Collections.sort (messages, comparator);
         return messages;
     }
-
+    @CrossOrigin
     @DeleteMapping("/rooms/{roomId}/{username}")
     public ResponseEntity<String> deleteStudent(@PathVariable Long roomId,@PathVariable String username) {
         roomService.deleteMember(roomId, username);
