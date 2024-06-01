@@ -42,6 +42,7 @@ import {
   setModelData,
   setConfirmModal,
   setFormModal,
+  setFormModalFriendList,
 } from "providers/GeneralProvider/slice";
 import {
   getProfile,
@@ -110,7 +111,7 @@ const Home = (): JSX.Element => {
   };
   const [text, setText] = useState("");
   const showModelAcceptFriend = (data: any) => {
-    dispatch(setFormModal({ visible: true, data }));
+    dispatch(setFormModalFriendList({ visible: true, data }));
   };
   const [form] = Form.useForm();
 

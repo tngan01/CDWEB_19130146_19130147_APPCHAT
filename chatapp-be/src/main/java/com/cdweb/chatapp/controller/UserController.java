@@ -49,20 +49,31 @@ public class UserController {
     @Autowired
     private AuthenticationManager authenticationManager;
 
+    @CrossOrigin
     @PostMapping("/auth")
+//    public String authAndGetToken(@RequestBody LoginRequest loginRequest) {
+//        Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
+//        SecurityContextHolder.getContext().setAuthentication(authentication);
+//        String token;
+//        if (authentication.isAuthenticated()) {
+//            token = jwtService.generateToken(loginRequest.getUsername());
+//            return token;
+//
+//        } else throw new UsernameNotFoundException("invalid user request!");
+////        String jwt = jwtProvider.generateJwtToken(authentication);
+//
+//    }
     public String authAndGetToken(@RequestBody LoginRequest loginRequest) {
-        Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
-        SecurityContextHolder.getContext().setAuthentication(authentication);
-        String token;
-        if (authentication.isAuthenticated()) {
+        String token = "fausdhfjasuifebujbuwbf";
+        if (true) {
             token = jwtService.generateToken(loginRequest.getUsername());
             return token;
-
-        } else throw new UsernameNotFoundException("invalid user request!");
-//        String jwt = jwtProvider.generateJwtToken(authentication);
+        }
+        return token;
 
     }
 
+    @CrossOrigin
     @PostMapping("/register")
     public ResponseEntity<String> addNewUser(@RequestBody User newUser, HttpServletRequest request) throws MessagingException, UnsupportedEncodingException {
         boolean ckeckAccount = userService.register(newUser, getSiteURL(request));
@@ -78,11 +89,13 @@ public class UserController {
 
 //    =====================================================================================================
 
+    @CrossOrigin
     @GetMapping("/user")
     public String helloUser(HttpServletRequest request) {
         return request.getHeader("Authorization");
     }
 
+    @CrossOrigin
     @GetMapping("/hello")
     public String helloPage() {
         System.out.println("hâhaa");
@@ -99,6 +112,7 @@ public class UserController {
         return mapper.map(userService.findByEmail(username), UserDto.class);
     }
 
+    @CrossOrigin
     @GetMapping("/users/me")
     public UserDto myProfile(@RequestHeader("Authorization") String bearerToken) {
         String username = jwtService.extractUsername(bearerToken.substring(7));
@@ -106,6 +120,7 @@ public class UserController {
         return mapper.map(userService.findByEmail(username), UserDto.class);
     }
 
+    @CrossOrigin
     @PutMapping("/users/me/update")
     public void updateProfile(@RequestHeader("Authorization") String bearerToken, @RequestBody UserUpdateRequest userUpdateRequest) {
         String username = jwtService.extractUsername(bearerToken.substring(7));
